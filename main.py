@@ -51,7 +51,7 @@ elif suma <= 670:
 else:
     valor = 7
 
-            fila.append(str(suma))
+        fila.append(str(suma))
 
         archivo.write(" ".join(fila))
 
