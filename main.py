@@ -53,7 +53,7 @@ with open(NOMBRE_SALIDA, "w") as archivo:
             else:
                 valor = 7
 
-            archivo.write(f"-{valor}-     ")
+            archivo.write(f"-{valor}-    ")
 
         # Salto de línea al terminar la fila de píxeles
         archivo.write("\n")
