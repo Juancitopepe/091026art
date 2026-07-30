@@ -26,8 +26,10 @@ with open(NOMBRE_SALIDA, "w") as archivo:
 
     for y in range(60):
 
-        fila = []
+        # Línea con el número de fila
+        archivo.write(f"-{y + 1}-\n")
 
+        # Línea con los 60 valores
         for x in range(60):
 
             r, g, b = imagen.getpixel((x, y))
@@ -51,11 +53,12 @@ with open(NOMBRE_SALIDA, "w") as archivo:
             else:
                 valor = 7
 
-            fila.append(str(valor))
+            archivo.write(f"-{valor}-     ")
 
-        archivo.write(" ".join(fila))
+        # Salto de línea al terminar la fila de píxeles
+        archivo.write("\n")
 
-        if y != 59:
-            archivo.write("\n")
+        # Línea en blanco como separador
+        archivo.write("\n")
 
 print("✅ Archivo generado correctamente:", NOMBRE_SALIDA)
