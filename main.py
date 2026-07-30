@@ -56,16 +56,13 @@ with open(NOMBRE_SALIDA, "w") as archivo:
 
             archivo.write(f"-{valor}-\t")
 
-        # Salto de línea al terminar la fila de píxeles
         archivo.write("\n")
-
-        # Línea en blanco como separador
         archivo.write("\n")
 
 print("✅ Archivo generado correctamente:", NOMBRE_SALIDA)
 
 # -----------------------------
-# GENERAR IMAGEN AMPLIADA
+# GENERAR IMAGEN DE VISIÓN
 # -----------------------------
 
 vision = Image.new("RGB", (360, 360))
@@ -73,9 +70,28 @@ vision = Image.new("RGB", (360, 360))
 for y in range(60):
     for x in range(60):
 
-        color = imagen.getpixel((x, y))
+        r, g, b = imagen.getpixel((x, y))
+        suma = r + g + b
 
-        # Dibujar un bloque de 6x6
+        # Determinar el gris correspondiente
+        if suma <= 95:
+            color = (0, 0, 0)
+        elif suma <= 191:
+            color = (36, 36, 36)
+        elif suma <= 287:
+            color = (73, 73, 73)
+        elif suma <= 382:
+            color = (109, 109, 109)
+        elif suma <= 478:
+            color = (146, 146, 146)
+        elif suma <= 574:
+            color = (182, 182, 182)
+        elif suma <= 670:
+            color = (219, 219, 219)
+        else:
+            color = (255, 255, 255)
+
+        # Dibujar el bloque 6x6
         for dy in range(6):
             for dx in range(6):
                 vision.putpixel((x * 6 + dx, y * 6 + dy), color)
