@@ -15,7 +15,7 @@ imagen = Image.open(NOMBRE_IMAGEN).convert("RGB")
 
 # Verificar tamaño
 if imagen.size != (60, 60):
-    print("❌ Error: la imagen debe ser de 60x60 píxeles.")
+    print("❌ Error: tamaño de imagen incorrecto.")
     exit()
 
 # -----------------------------
@@ -37,21 +37,21 @@ with open(NOMBRE_SALIDA, "w") as archivo:
             suma = r + g + b
 
             if suma <= 95:
-                valor = 0
-            elif suma <= 191:
-                valor = 1
-            elif suma <= 287:
-                valor = 2
-            elif suma <= 382:
-                valor = 3
-            elif suma <= 478:
-                valor = 4
-            elif suma <= 574:
-                valor = 5
-            elif suma <= 670:
-                valor = 6
-            else:
                 valor = 7
+            elif suma <= 191:
+                valor = 6
+            elif suma <= 287:
+                valor = 5
+            elif suma <= 382:
+                valor = 4 
+            elif suma <= 478:
+                valor = 3
+            elif suma <= 574:
+                valor = 2
+            elif suma <= 670:
+                valor = 1
+            else:
+                valor = 0
 
             archivo.write(f"-{valor}-\t")
 
