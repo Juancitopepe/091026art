@@ -24,7 +24,7 @@ if imagen.size != (60, 60):
 
 with open(NOMBRE_SALIDA, "w") as archivo:
 
-for y in range(60):
+    for y in range(60):
 
     fila = []
 
