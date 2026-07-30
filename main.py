@@ -55,7 +55,7 @@ else:
 
     archivo.write(" ".join(fila))
 
-        if y != 59:
-            archivo.write("\n")
+    if y != 59:
+        archivo.write("\n")
 
 print("✅ Archivo generado correctamente:", NOMBRE_SALIDA)
