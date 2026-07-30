@@ -6,6 +6,7 @@ from PIL import Image
 
 NOMBRE_IMAGEN = "imagen.png"
 NOMBRE_SALIDA = "salida.txt"
+NOMBRE_VISION = "vision.png"
 
 # -----------------------------
 # ABRIR IMAGEN
@@ -43,7 +44,7 @@ with open(NOMBRE_SALIDA, "w") as archivo:
             elif suma <= 287:
                 valor = 5
             elif suma <= 382:
-                valor = 4 
+                valor = 4
             elif suma <= 478:
                 valor = 3
             elif suma <= 574:
@@ -62,3 +63,23 @@ with open(NOMBRE_SALIDA, "w") as archivo:
         archivo.write("\n")
 
 print("✅ Archivo generado correctamente:", NOMBRE_SALIDA)
+
+# -----------------------------
+# GENERAR IMAGEN AMPLIADA
+# -----------------------------
+
+vision = Image.new("RGB", (360, 360))
+
+for y in range(60):
+    for x in range(60):
+
+        color = imagen.getpixel((x, y))
+
+        # Dibujar un bloque de 6x6
+        for dy in range(6):
+            for dx in range(6):
+                vision.putpixel((x * 6 + dx, y * 6 + dy), color)
+
+vision.save(NOMBRE_VISION)
+
+print("✅ Imagen generada correctamente:", NOMBRE_VISION)
