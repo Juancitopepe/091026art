@@ -24,34 +24,34 @@ if imagen.size != (60, 60):
 
 with open(NOMBRE_SALIDA, "w") as archivo:
 
-    for y in range(60):
+for y in range(60):
 
-        fila = []
+    fila = []
 
-        for x in range(60):
+    for x in range(60):
 
-            r, g, b = imagen.getpixel((x, y))
+        r, g, b = imagen.getpixel((x, y))
 
-suma = r + g + b
+        suma = r + g + b
 
-if suma <= 95:
-    valor = 0
-elif suma <= 191:
-    valor = 1
-elif suma <= 287:
-    valor = 2
-elif suma <= 382:
-    valor = 3
-elif suma <= 478:
-    valor = 4
-elif suma <= 574:
-    valor = 5
-elif suma <= 670:
-    valor = 6
-else:
-    valor = 7
+        if suma <= 95:
+            valor = 0
+        elif suma <= 191:
+            valor = 1
+        elif suma <= 287:
+            valor = 2
+        elif suma <= 382:
+            valor = 3
+        elif suma <= 478:
+            valor = 4
+        elif suma <= 574:
+            valor = 5
+        elif suma <= 670:
+            valor = 6
+        else:
+            valor = 7
 
-    fila.append(str(suma))
+        fila.append(str(valor))
 
     archivo.write(" ".join(fila))
 
