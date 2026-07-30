@@ -32,9 +32,26 @@ with open(NOMBRE_SALIDA, "w") as archivo:
 
             r, g, b = imagen.getpixel((x, y))
 
-            suma = r + g + b
+suma = r + g + b
 
-            fila.append(str(suma))
+if suma <= 95:
+    valor = 0
+elif suma <= 191:
+    valor = 1
+elif suma <= 287:
+    valor = 2
+elif suma <= 382:
+    valor = 3
+elif suma <= 478:
+    valor = 4
+elif suma <= 574:
+    valor = 5
+elif suma <= 670:
+    valor = 6
+else:
+    valor = 7
+
+fila.append(str(valor))
 
         archivo.write(" ".join(fila))
 
